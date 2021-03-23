@@ -331,8 +331,8 @@ namespace UnitTestLab4_1
             Lab4.Student student = new Lab4.Student();
             int res1 = student.Compare("Anonimous");
 
-            student = new Lab4.Student("Õâàëèìèğ; Êóğòÿê; Ê-21; 2019; Geroev Stalingrada Ul., bld. 23, appt. 104; 000000127; 22; 380961111115; 55");
-            int res2 = student.Compare("Êóğòÿê");
+            student = new Lab4.Student("Ğ¥Ğ²Ğ°Ğ»Ğ¸Ğ¼Ğ¸Ñ€; ĞšÑƒÑ€Ñ‚ÑĞº; Ğš-21; 2019; Geroev Stalingrada Ul., bld. 23, appt. 104; 000000127; 22; 380961111115; 55");
+            int res2 = student.Compare("ĞšÑƒÑ€Ñ‚ÑĞº");
 
             Assert.AreEqual(0, res1);
             Assert.AreEqual(0, res2);
