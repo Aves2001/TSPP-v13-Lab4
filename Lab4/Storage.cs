@@ -6,6 +6,7 @@ namespace Lab4
 {
     public class Storage
     {
+        private const int maxLength = -20;
         private static string file_name;
         private string inventoryNumber, productName, weight, price, number;
 
@@ -52,7 +53,15 @@ namespace Lab4
             {
                 TestMaxLength(value);
                 TestIsNumber(value, "Введено невірну вагу, використано заборонені символи");
-                weight = value;
+                if (value.Equals("null")) { weight = "null"; }
+                else if (!int.TryParse(value, out _))
+                {
+                    weight = Convert.ToString(double.Parse(value) / 0.001);
+                }
+                else
+                {
+                    weight = value;
+                }
             }
         }
         public string Price
@@ -104,7 +113,6 @@ namespace Lab4
 
         public override string ToString() // в якому форматі виводити дані на екран
         {
-            const int size = -16;
             string Weights = Weight;
             string Prices = Price;
             if (double.TryParse(Weight, out double res) && res > 999)
@@ -124,8 +132,8 @@ namespace Lab4
             {
                 Prices += " грн.";
             }
-            return string.Format($"{"|"}{InventoryNumber,size} {"|"}{ProductName,size} {"|"}{Weights,size} {"|"}{Prices,size} {"|"}{Number,size}|\n" +
-                                 "==========================================================================================");
+            return string.Format($"{"|"}{InventoryNumber,maxLength} {"|"}{ProductName,maxLength * 2} {"|"}{Weights,maxLength + 7} {"|"}{Prices,maxLength + 7} {"|"}{Number,maxLength + 11}|\n" +
+                                 "=========================================================================================================");
         }
 
         public static void ViewTable()
@@ -170,9 +178,9 @@ namespace Lab4
 
         public static void TableCap()
         {
-            Console.WriteLine("==========================================================================================");
-            Console.WriteLine("|Інвентарний номер|  Назва  товару  |       Вага      |       Ціна      |    Кількість   |");
-            Console.WriteLine("==========================================================================================");
+            Console.WriteLine("=========================================================================================================");
+            Console.WriteLine("|  Інвентарний номер  |               Назва  товару             |     Вага     |     Ціна     |Кількість|");
+            Console.WriteLine("=========================================================================================================");
         }
         ///////////////////////////////////////////////////////////////////////
         public static int CheckSizeArray() // провірка який розмір має мати масив
@@ -624,7 +632,7 @@ namespace Lab4
         }
         private static bool TestIsLetter(string str)
         {
-            if (str.Length > 16)
+            if (str.Length > -maxLength)
             {
                 return false;
             }
@@ -633,10 +641,10 @@ namespace Lab4
 
         private static void TestMaxLength(string str)
         {
-            if (str.Length > 16)
+            if (str.Length > -maxLength * 2)
             {
                 Console.WriteLine("Причина помилки: " + str);
-                throw new Exception("Кількість символів не може бути довша за 16 символів");
+                throw new Exception("Кількість символів не може бути довша за " + (-maxLength * 2) + " символів");
             }
         }
     }
