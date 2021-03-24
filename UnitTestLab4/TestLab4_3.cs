@@ -108,7 +108,7 @@ namespace UnitTestLab4_3
         {
             bool ok = false;
 
-            string test = "11111111111111111111111111111";
+            string test = "1111111111111111111111111111111111111111111111111111111111";
 
             try
             {
@@ -129,7 +129,7 @@ namespace UnitTestLab4_3
         {
             bool ok = false, ok2 = false;
 
-            string test = "15h", test2 = "11111111111111111111111111111";
+            string test = "15h", test2 = "1111111111111111111111111111111111111111111111111111111111";
             try
             {
                 Lab4.Storage storage = new Lab4.Storage
@@ -162,7 +162,7 @@ namespace UnitTestLab4_3
         {
             bool ok = false, ok2 = false;
 
-            string test = "15h", test2 = "11111111111111111111111111111";
+            string test = "15h", test2 = "1111111111111111111111111111111111111111111111111111111111";
             try
             {
                 Lab4.Storage storage = new Lab4.Storage
@@ -195,7 +195,7 @@ namespace UnitTestLab4_3
         {
             bool ok = false, ok2 = false;
 
-            string test = "15h", test2 = "11111111111111111111111111111";
+            string test = "15h", test2 = "1111111111111111111111111111111111111111111111111111111111";
             try
             {
                 Lab4.Storage storage = new Lab4.Storage
